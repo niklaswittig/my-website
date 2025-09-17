@@ -533,7 +533,7 @@ function App() {
                       }} 
                     />
                   </a>,{' '}
-                  an M&A boutique which unfortunately underwent substantial downsizing due to financial challenges. I used the time under noncompete to take the GMAT and hone my cooking skills.
+                  an M&A boutique which unfortunately underwent substantial downsizing due to financial challenges. I used the time after under noncompete to take the GMAT and hone my cooking skills.
                 </p>
 
                 <p style={{
@@ -544,7 +544,7 @@ function App() {
                   marginBottom: '1.5rem',
                   fontFamily: 'Helvetica, Arial, sans-serif'
                 }}>
-                  Currently I am leveraging data and AI to build the ultimate toolsuite for investment professionals; this project is still in stealth, with MVP development underway in partnership with small and midcap firms.  
+                  While I look for the right next step, I am also leveraging data and AI to build the ultimate toolsuite for investment professionals; this project is still in stealth, with MVP development underway in partnership with small and midcap firms.  
                 </p>
 
                 <p style={{
