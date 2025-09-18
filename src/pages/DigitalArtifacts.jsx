@@ -9,6 +9,7 @@ function DigitalArtifacts() {
   const [timelineVisible, setTimelineVisible] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [typingIndex, setTypingIndex] = useState(-1);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   const fullTitle = 'DIGITAL ARTIFACTS ARCHIVE';
@@ -104,6 +105,18 @@ function DigitalArtifacts() {
     }
   ];
 
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Initialize and control the loading sequence
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
@@ -171,7 +184,8 @@ function DigitalArtifacts() {
         fontFamily: '"Courier New", Courier, monospace',
         color: '#00ff41',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        padding: '1rem'
       }}>
         <div style={{
           position: 'absolute',
@@ -190,7 +204,7 @@ function DigitalArtifacts() {
         }} />
         
         <div style={{
-          fontSize: '1.2rem',
+          fontSize: isMobile ? '1rem' : '1.2rem',
           textAlign: 'center',
           animation: 'glitch 0.3s infinite linear alternate-reverse'
         }}>
@@ -198,10 +212,11 @@ function DigitalArtifacts() {
         </div>
         
         <div style={{
-          fontSize: '0.9rem',
+          fontSize: isMobile ? '0.8rem' : '0.9rem',
           marginTop: '1rem',
           opacity: 0.7,
-          animation: 'fade 2s ease-in-out infinite alternate'
+          animation: 'fade 2s ease-in-out infinite alternate',
+          textAlign: 'center'
         }}>
           LOADING DIGITAL ARTIFACTS
         </div>
@@ -258,10 +273,11 @@ function DigitalArtifacts() {
         alignItems: 'center',
         justifyContent: 'center',
         fontFamily: '"Courier New", Courier, monospace',
-        color: '#00ff41'
+        color: '#00ff41',
+        padding: '1rem'
       }}>
         <div style={{
-          fontSize: '1.2rem',
+          fontSize: isMobile ? '1rem' : '1.2rem',
           textAlign: 'center',
           animation: 'fadeOut 1.5s ease-out'
         }}>
@@ -269,7 +285,7 @@ function DigitalArtifacts() {
         </div>
         
         <div style={{
-          fontSize: '0.9rem',
+          fontSize: isMobile ? '0.8rem' : '0.9rem',
           marginTop: '1rem',
           opacity: 0.7
         }}>
@@ -294,7 +310,7 @@ function DigitalArtifacts() {
       color: '#00ff41',
       fontFamily: '"Courier New", Courier, monospace',
       position: 'relative',
-      padding: '2rem'
+      padding: isMobile ? '1rem' : '2rem'
     }}>
       {/* Scanlines overlay */}
       <div style={{
@@ -315,7 +331,7 @@ function DigitalArtifacts() {
       }} />
 
       <div style={{
-        maxWidth: '800px',
+        maxWidth: isMobile ? '100%' : '800px',
         margin: '0 auto',
         position: 'relative',
         zIndex: 2
@@ -325,7 +341,7 @@ function DigitalArtifacts() {
           <div 
             onClick={handleExit}
             style={{
-              fontSize: '0.9rem',
+              fontSize: isMobile ? '0.8rem' : '0.9rem',
               color: '#00ff41',
               fontFamily: '"Courier New", Courier, monospace',
               marginBottom: '2rem',
@@ -350,7 +366,7 @@ function DigitalArtifacts() {
           
           <div>
             <div style={{
-              fontSize: '0.8rem',
+              fontSize: isMobile ? '0.7rem' : '0.8rem',
               color: '#7d8590',
               marginBottom: '0.5rem'
             }}>
@@ -358,7 +374,7 @@ function DigitalArtifacts() {
             </div>
             
             <div style={{
-              fontSize: '0.85rem',
+              fontSize: isMobile ? '0.75rem' : '0.85rem',
               color: '#e6e6e6',
               marginBottom: '1.5rem',
               lineHeight: '1.6',
@@ -367,7 +383,8 @@ function DigitalArtifacts() {
             }}>
               DIGITAL ARTIFACTS COLLECTION - Personal Discovery Archive
               <br />
-              ========================================================
+              {!isMobile && '========================================================'}
+              {isMobile && '==============================='}
               <br /><br />
               This archive catalogs digital content that shaped my thinking
               <br />
@@ -387,7 +404,7 @@ function DigitalArtifacts() {
             </div>
             
             <div style={{
-              fontSize: '0.8rem',
+              fontSize: isMobile ? '0.7rem' : '0.8rem',
               color: '#7d8590',
               marginBottom: '0.5rem'
             }}>
@@ -395,7 +412,7 @@ function DigitalArtifacts() {
             </div>
             
             <h1 style={{
-              fontSize: '1.5rem',
+              fontSize: isMobile ? '1.1rem' : '1.5rem',
               fontWeight: 'normal',
               color: '#00ff41',
               marginBottom: '1rem',
@@ -412,7 +429,7 @@ function DigitalArtifacts() {
             </h1>
             
             <div style={{
-              fontSize: '0.8rem',
+              fontSize: isMobile ? '0.7rem' : '0.8rem',
               color: '#7d8590',
               opacity: titleComplete ? 1 : 0,
               transition: 'opacity 0.5s ease 0.3s'
@@ -427,98 +444,194 @@ function DigitalArtifacts() {
           opacity: titleComplete ? 1 : 0,
           transition: 'opacity 0.6s ease 0.5s'
         }}>
-          {/* Header row */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '60px 100px 120px 80px 1fr',
-            gap: '1rem',
-            padding: '0.5rem 0',
-            borderBottom: '1px solid #30363d',
-            fontSize: '0.8rem',
-            color: '#7d8590',
-            marginBottom: '1rem'
-          }}>
-            <div>ID</div>
-            <div>DISCOVERED</div>
-            <div>TYPE</div>
-            <div>IMPACT</div>
-            <div>ARTIFACT</div>
-          </div>
+          {/* Desktop Header row */}
+          {!isMobile && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '60px 100px 120px 80px 1fr',
+              gap: '1rem',
+              padding: '0.5rem 0',
+              borderBottom: '1px solid #30363d',
+              fontSize: '0.8rem',
+              color: '#7d8590',
+              marginBottom: '1rem'
+            }}>
+              <div>ID</div>
+              <div>DISCOVERED</div>
+              <div>TYPE</div>
+              <div>IMPACT</div>
+              <div>ARTIFACT</div>
+            </div>
+          )}
+
+          {/* Mobile Header */}
+          {isMobile && (
+            <div style={{
+              fontSize: '0.7rem',
+              color: '#7d8590',
+              marginBottom: '1rem',
+              borderBottom: '1px solid #30363d',
+              paddingBottom: '0.5rem'
+            }}>
+              ARTIFACTS | ID | YEAR | TYPE | SIZE
+            </div>
+          )}
 
           {/* Artifact list */}
           {artifactsData.map((artifact, index) => {
             const isVisible = timelineVisible && index <= typingIndex;
             
-            return (
-              <div
-                key={artifact.id}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '60px 100px 120px 80px 1fr',
-                  gap: '1rem',
-                  padding: '0.5rem 0',
-                  fontSize: '0.85rem',
-                  borderBottom: '1px solid #21262d',
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
-                  transition: 'all 0.4s ease',
-                  transitionDelay: `${index * 50}ms`
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = '#161b22';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                }}
-              >
-                <div style={{ color: '#7d8590' }}>
-                  {String(artifact.id).padStart(3, '0')}
+            if (isMobile) {
+              // Mobile layout - stack vertically
+              return (
+                <div
+                  key={artifact.id}
+                  style={{
+                    padding: '1rem 0',
+                    fontSize: '0.8rem',
+                    borderBottom: '1px solid #21262d',
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
+                    transition: 'all 0.4s ease',
+                    transitionDelay: `${index * 50}ms`
+                  }}
+                  onTouchStart={(e) => {
+                    e.target.style.backgroundColor = '#161b22';
+                  }}
+                  onTouchEnd={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    marginBottom: '0.5rem',
+                    flexWrap: 'wrap',
+                    gap: '0.5rem'
+                  }}>
+                    <div style={{ 
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      fontSize: '0.7rem'
+                    }}>
+                      <span style={{ color: '#7d8590' }}>
+                        #{String(artifact.id).padStart(3, '0')}
+                      </span>
+                      <span style={{ color: '#ffa657' }}>
+                        {artifact.year}
+                      </span>
+                      <span style={{ color: '#79c0ff' }}>
+                        {artifact.type}
+                      </span>
+                      <span style={{ color: '#7d8590' }}>
+                        {artifact.size}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <a
+                      href={artifact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#00ff41',
+                        textDecoration: 'none',
+                        fontFamily: '"Courier New", Courier, monospace',
+                        fontSize: '0.8rem',
+                        lineHeight: '1.4',
+                        display: 'block',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onTouchStart={(e) => {
+                        e.target.style.textDecoration = 'underline';
+                        e.target.style.textShadow = '0 0 5px #00ff41';
+                      }}
+                      onTouchEnd={(e) => {
+                        e.target.style.textDecoration = 'none';
+                        e.target.style.textShadow = 'none';
+                      }}
+                    >
+                      {artifact.title}
+                    </a>
+                  </div>
                 </div>
-                
-                <div style={{ color: '#ffa657' }}>
-                  {artifact.year}
+              );
+            } else {
+              // Desktop layout - grid
+              return (
+                <div
+                  key={artifact.id}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '60px 100px 120px 80px 1fr',
+                    gap: '1rem',
+                    padding: '0.5rem 0',
+                    fontSize: '0.85rem',
+                    borderBottom: '1px solid #21262d',
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
+                    transition: 'all 0.4s ease',
+                    transitionDelay: `${index * 50}ms`
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = '#161b22';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  <div style={{ color: '#7d8590' }}>
+                    {String(artifact.id).padStart(3, '0')}
+                  </div>
+                  
+                  <div style={{ color: '#ffa657' }}>
+                    {artifact.year}
+                  </div>
+                  
+                  <div style={{ color: '#79c0ff' }}>
+                    {artifact.type}
+                  </div>
+                  
+                  <div style={{ color: '#7d8590' }}>
+                    {artifact.size}
+                  </div>
+                  
+                  <div>
+                    <a
+                      href={artifact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#00ff41',
+                        textDecoration: 'none',
+                        fontFamily: '"Courier New", Courier, monospace',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.textDecoration = 'underline';
+                        e.target.style.textShadow = '0 0 5px #00ff41';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.textDecoration = 'none';
+                        e.target.style.textShadow = 'none';
+                      }}
+                    >
+                      {artifact.title}
+                    </a>
+                  </div>
                 </div>
-                
-                <div style={{ color: '#79c0ff' }}>
-                  {artifact.type}
-                </div>
-                
-                <div style={{ color: '#7d8590' }}>
-                  {artifact.size}
-                </div>
-                
-                <div>
-                  <a
-                    href={artifact.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: '#00ff41',
-                      textDecoration: 'none',
-                      fontFamily: '"Courier New", Courier, monospace',
-                      transition: 'all 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.textDecoration = 'underline';
-                      e.target.style.textShadow = '0 0 5px #00ff41';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.textDecoration = 'none';
-                      e.target.style.textShadow = 'none';
-                    }}
-                  >
-                    {artifact.title}
-                  </a>
-                </div>
-              </div>
-            );
+              );
+            }
           })}
         </div>
 
         {/* Footer */}
         <div style={{
           marginTop: '3rem',
-          fontSize: '0.8rem',
+          fontSize: isMobile ? '0.7rem' : '0.8rem',
           color: '#7d8590',
           opacity: timelineVisible ? 1 : 0,
           transition: 'opacity 0.5s ease 2s'
