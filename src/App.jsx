@@ -326,7 +326,7 @@ function App() {
                 marginBottom: '1.5rem',
                 fontFamily: 'Helvetica, Arial, sans-serif'
               }}>
-                In my free time, you'll find me chasing the sun with good tunes blasting, taking spirited drives on roads that beg for it, and meticulously optimizing my investment portfolio.
+                In my free time, you'll find me chasing the sun with tunes blasting, taking spirited drives on roads that beg for it, and meticulously optimizing my investment portfolio.
               </p>
             </div>
 
