@@ -309,7 +309,7 @@ function App() {
                 marginBottom: '1.5rem',
                 fontFamily: 'Helvetica, Arial, sans-serif'
               }}>
-                I'm a 23-year-old California native, currently calling Berlin home. I've been thinking a lot about the most innovative businesses that have come to fruition due to modern AI, how businesses are being revolutionized, and where I fit in this vast ocean of opportunity.
+                I'm a 22-year-old California native, currently calling Berlin home. I"m fascinated by the innovative businesses that have come to fruition due to modern AI, how businesses are being revolutionized, and where I fit in this vast ocean of opportunity.
               </p>
             </div>
             
@@ -326,7 +326,7 @@ function App() {
                 marginBottom: '1.5rem',
                 fontFamily: 'Helvetica, Arial, sans-serif'
               }}>
-                In my free time, you'll find me chasing the sun with EDM blasting, taking spirited drives on roads that beg for it, and meticulously optimizing my investment portfolio.
+                In my free time, you'll find me chasing the sun with good tunes blasting, taking spirited drives on roads that beg for it, and meticulously optimizing my investment portfolio.
               </p>
             </div>
 
@@ -533,7 +533,7 @@ function App() {
                       }} 
                     />
                   </a>,{' '}
-                  an M&A boutique which unfortunately underwent substantial downsizing due to financial challenges. I used the time after under noncompete to take the GMAT and hone my cooking skills.
+                  an M&A boutique which unfortunately underwent substantial downsizing from financial challenges. I used the transition time under noncompete to take the GMAT and hone my cooking skills.
                 </p>
 
                 <p style={{
@@ -544,7 +544,7 @@ function App() {
                   marginBottom: '1.5rem',
                   fontFamily: 'Helvetica, Arial, sans-serif'
                 }}>
-                  While I look for the right next step, I am also leveraging data and AI to build the ultimate toolsuite for investment professionals; this project is still in stealth, with MVP development underway in partnership with small and midcap firms.  
+                  As I look for the right next step, I am leveraging data and AI to build the ultimate toolsuite for investment professionals; this project is still in stealth, with MVP development underway in partnership with small and midcap firms.  
                 </p>
 
                 <p style={{
@@ -577,7 +577,7 @@ function App() {
                     }}
                   >
                     WHU
-                  </a>. During my time there, I helped organize several{' '}
+                  </a>. During my time there, I organized several{' '}
                   <a 
                     href="https://www.tedxwhu.com" 
                     target="_blank" 
@@ -633,7 +633,7 @@ function App() {
                   fontWeight: '400',
                   fontFamily: 'Helvetica, Arial, sans-serif'
                 }}>
-                  I try to visit home a few times a year, because family is important. I love meeting new people, so if you're ever around the San Francisco Bay Area, please reach out - you'll find me off of Sand Hill Road. If you're ever in Berlin, look me up in 10781.
+                  I visit home a few times a year, because family is important. I love meeting new people, so if you're ever around the San Francisco Bay Area, please reach out - you'll find me off of Sand Hill Road. If you're ever in Berlin, look me up in 10781.
                 </p>
               </div>
             </div>
