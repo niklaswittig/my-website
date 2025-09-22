@@ -309,7 +309,7 @@ function App() {
                 marginBottom: '1.5rem',
                 fontFamily: 'Helvetica, Arial, sans-serif'
               }}>
-                I'm a 22-year-old California native, currently calling Berlin home. I"m fascinated by the innovative businesses that have come to fruition due to modern AI, how businesses are being revolutionized, and where I fit in this vast ocean of opportunity.
+                I'm a 22-year-old California native, currently calling Berlin home. I'm fascinated by the innovative businesses that have come to fruition due to modern AI, how businesses are being revolutionized, and where I fit in this vast ocean of opportunity.
               </p>
             </div>
             
