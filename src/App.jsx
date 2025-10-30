@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Linkedin } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import RocheLogo from './assets/Roche_logo.png';
 import ChargepointLogo from './assets/Chargepoint_logo.png';
 import BrightdropLogo from './assets/Brightdrop_logo.png';
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       {/* Welcome Screen */}
       <div style={{
         position: 'fixed',
